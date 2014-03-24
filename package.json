@@ -1,0 +1,47 @@
+{
+  "name": "RepoCop",
+  "version": "0.0.0",
+  "description": "Gathers metadata from source code repositories",
+  "main": "cluster.js",
+  "scripts": {
+    "postinstall": "bower update",
+    "start": "node cluster.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acuminous/reposcan"
+  },
+  "author": "Stephen Cresswell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acuminous/reposcan/issues"
+  },
+  "homepage": "https://github.com/acuminous/reposcan",
+  "devDependencies": {
+    "gulp": "^3.5.6",
+    "marked": "~0.3.1",
+    "gulp-concat": "~2.1.7",
+    "gulp-rename": "~1.2.0",
+    "gulp-plumber": "~0.5.6",
+    "gulp-cache": "~0.1.3",
+    "gulp-svgmin": "~0.4.4",
+    "gulp-ngmin": "~0.1.2",
+    "gulp-less": "~1.2.2",
+    "gulp-buster": "~0.2.1",
+    "gulp-ignore": "~1.0.0",
+    "gulp-uglify": "^0.2.1",
+    "bower": "^1.3.1"
+  },
+  "dependencies": {
+    "async": "^0.2.10",
+    "lodash": "^2.4.1",
+    "chalk": "^0.4.0",
+    "nconf": "^0.6.9",
+    "github": "^0.1.14",
+    "optimist": "^0.6.1",
+    "express": "^3.5.0",
+    "express3-handlebars": "^0.5.0",
+    "winston": "^0.7.2"
+  }
+}
