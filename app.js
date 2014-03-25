@@ -9,11 +9,10 @@ var survey = require('./lib/survey/survey');
 var logger = require('./lib/util/logger');
 var app = express();    
 
-var publicDir = path.join(__dirname, 'public');
+var publicDir = path.join(__dirname, 'public', 'dist');
 var templatesDir = path.join(publicDir, 'handlebars');    
 var layoutsDir = path.join(templatesDir, 'layouts');
 var viewsDir = path.join(templatesDir, 'views');
-var surveyPath = path.join(publicDir, 'survey.json');
 
 app.disable('x-powered-by');
 
