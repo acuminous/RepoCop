@@ -12,10 +12,12 @@ RepoCop monitors your source code repositories and reports violations to committ
 ```
 
 ## Installation
+```bash
 mkdir <instal-path>
 cd <install-path>
 npm install RepoCop
 NODE_ENV=production npm start --prefix node_modules/RepoCop
+```
 
 ### Production Configuration
 RepoCop requires you to define organisations in conf/private.json, e.g.
@@ -45,7 +47,7 @@ RepoCop requires you to define organisations in conf/private.json, e.g.
     }
 }
 ```
-*** Do not check this file into source control ***
+**If you fork this project do not check this file into source control**
 
 
 The application key should have access to the following roles
