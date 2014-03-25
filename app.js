@@ -30,7 +30,7 @@ app.set("views", viewsDir);
 app.get('/', function (req, res) {
     res.render('repositories', { 
         environment: environment, 
-        repositories: fs.existsSync(config.survey.output) ? require(config.survey.output) : []
+        repositories: fs.existsSync(config.survey.output) ? require(path.resolve(config.survey.output)) : []
     })
 });
 

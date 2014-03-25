@@ -1,17 +1,21 @@
-<table class="table table-condensed">
+<table class="table table-condensed repositories">
     <thead>
         <th>Repository</th>
+        <th>Importance</th>
         <th>Description</th>
+        <th>Language</th>
     </thead>
     <tbody>
         {{#each repositories}}
             <tr>
-                <td><a href="{{html_url}}">{{name}}</a></td>
-                <td>{{metadata.description}}</td>                
+                <td class="repository"><i class="fa fa-github" title="github"></i>&nbsp;<a href="{{html_url}}" title="{{full_name}}">{{name}}</a></td>
+                <td>{{metadata.repoCop.importance}}</td>
+                <td>{{metadata.description}}</td>
+                <td>{{language}}</td>
             </tr>
         {{else}}
-            <tr>
-                <td colspan="2">There are no repositories</td>
+            <tr>                
+                <td colspan="4">There are no repositories</td>
             </tr>
         {{/each}}        
     </tbody>
