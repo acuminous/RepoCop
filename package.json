@@ -47,8 +47,5 @@
     "winston": "^0.7.2",
     "recluster": "^0.3.6",
     "request": "^2.34.0"
-  },
-  "repoCop": {
-    "impact": "minor"
   }
 }
