@@ -4,15 +4,15 @@
         "port": "8080"
     },
     "survey": {
-        "frequency": 3600000
+        "frequency": 3600000,
+        "output": "data/repositories.json"
     },
-    "logging": [
-        {
-            "type": "Console",
-            "level": "debug",
-            "colorize": true
+    "logging": {
+        "console": {            
+            "level": "info",
+            "colorize": false
         },
-        {
+        "app": {
             "type": "File",
             "filename": "app.log",
             "maxsize": 1048576,
@@ -20,5 +20,5 @@
             "level": "info",
             "colorize": false
         }
-    ]
+    }
 }
