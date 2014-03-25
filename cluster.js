@@ -25,7 +25,7 @@ if (config.survey.frequency) {
 
 function requestSurvey() {
     request.post(surveyUrl, function(err, response) {
-        if (err) return logger.error('Error triggering survey: %s', err);
+        if (err) return logger.error('Error triggering survey: %s', err.message);
         if (response.statusCode != 202) return logger.error('Error triggering survey: %s', response.statusCode);
     });    
 }

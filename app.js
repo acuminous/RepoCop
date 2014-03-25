@@ -1,6 +1,8 @@
 var express = require('express');
 var exphbs = require('express3-handlebars');
+var fs = require('fs');
 var path = require('path');
+var _ = require('lodash');
 var packageJson = require('./package.json');
 var quote = require('./lib/util/quote');
 var environment = require('./lib/util/environment');
@@ -9,39 +11,44 @@ var survey = require('./lib/survey/survey');
 var logger = require('./lib/util/logger');
 var app = express();    
 
-var viewsDir = path.join(__dirname, 'public', 'templates');    
-var layoutsDir = path.join(viewsDir, 'layouts');
-var staticDir = path.join(process.cwd(), 'public');
+var publicDir = path.join(__dirname, 'public');
+var templatesDir = path.join(publicDir, 'handlebars');    
+var layoutsDir = path.join(templatesDir, 'layouts');
+var viewsDir = path.join(templatesDir, 'views');
+var surveyPath = path.join(publicDir, 'survey.json');
 
 app.disable('x-powered-by');
-app.set('surveyPath', path.join(staticDir, 'survey.json'));
+app.set('surveyPath', surveyPath);
 
 app.post('/api/survey', survey.trigger);
-
-app.use(app.router);    
-app.use('/', express.static(staticDir));
 
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
     layoutsDir: layoutsDir,
-    partialsDir: viewsDir,
-    helpers: {
-        resource: function() {
-            var args = Array.prototype.slice.call(arguments, 0, arguments.length - 1);
-            var key = path.join.apply(path, ['static'].concat(args));
-            var buster = busters[key];
-            var url = path.join.apply(path, ['/', 'static', buster].concat(args));
-            return url;
-        }
-    }    
+    partialsDir: viewsDir    
 }));
+app.set('view engine', 'handlebars');
+app.set("views", viewsDir);
 
-app.use(function(req, res, err, next){
-    res.status(500).sendfile(path.join(staticDir, 'html', '500.html'));
+app.get('/', function (req, res) {
+    var surveyJson = fs.existsSync(surveyPath) ? require(surveyPath) : [];
+    res.render('repositories', { 
+        environment: environment, 
+        repositories: _.chain(surveyJson).pluck('repositories').flatten().value()
+    })
+});
+
+app.use(app.router);    
+app.use('/', express.static(publicDir));
+
+
+app.use(function(err, req, res, next){
+    res.status(500).sendfile(path.join(publicDir, 'html', '500.html'));
+    logger.error('Internal server error: %s', err.message);
 });
 
 app.use(function(req, res, next){
-    res.status(404).sendfile(path.join(staticDir, 'html', '404.html'));
+    res.status(404).sendfile(path.join(publicDir, 'html', '404.html'));
 });
 
 app.listen(config.server.port, config.server.host, function() {
