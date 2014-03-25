@@ -13,10 +13,10 @@ RepoCop monitors your source code repositories and reports violations to committ
 
 ## Installation
 ```bash
-mkdir <instal-path>
+git clone 
 cd <install-path>
 npm install RepoCop
-NODE_ENV=production npm start --prefix node_modules/RepoCop
+npm start
 ```
 
 ### Production Configuration
