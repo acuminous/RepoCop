@@ -13,13 +13,25 @@ RepoCop monitors your source code repositories and reports violations to committ
 
 ## Installation
 ```bash
-git clone 
-cd <install-path>
-npm install RepoCop
-npm start
+mkdir -p $INSTALL_DIR
+git clone https://github.com/acuminous/RepoCop.git $INSTALL_DIR
+cd $INSTALL_DIR
+npm install
+./node_modules/.bin/gulp build
+NODE_ENV=production node cluster.js --server.host=$HOST --server.port=$PORT
 ```
 
-### Production Configuration
+## Updating to the latest version
+```bash
+cd $INSTALL_DIR
+git fetch
+git reset --hard origin/master  
+npm install
+./node_modules/.bin/gulp build
+kill -s SIGUSR2 $(<"repocop.pid")
+```
+
+## Production Configuration
 RepoCop requires you to define organisations in conf/private.json, e.g.
 ```json
 {
@@ -53,8 +65,11 @@ RepoCop requires you to define organisations in conf/private.json, e.g.
 The application key should have access to the following roles
 
 ### GitHub
- 1. TODO
- 1. TODO
+ 1. repo
+ 1. public_repo
+ 1. user:email
+ 1. repo:status
+ 1. read:org
 
 ### BitBucket
  1. TODO
