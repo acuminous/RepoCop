@@ -4,7 +4,7 @@
   "description": "Gathers metadata from source code repositories",
   "main": "cluster.js",
   "scripts": {
-    "postinstall": "bower --allow-root update",
+    "postinstall": "bower --allow-root --config.interactive=false update",
     "start": "node cluster.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -10,8 +10,13 @@ RepoCop monitors your source code repositories and reports violations to committ
   "description": "Your project description"
 }
 ```
+## Prerequisits
+1. node
+1. git
+1. ```$git config --global url.ssh://git@github.com/.insteadOf git://github.com/```
 
 ## Installation
+Thanks to all sorts of interactive shenanigans with ssh and bower you are best running this by hand
 ```bash
 mkdir -p $INSTALL_DIR
 git clone https://github.com/acuminous/RepoCop.git $INSTALL_DIR

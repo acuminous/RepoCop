@@ -26,6 +26,7 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 app.set("views", viewsDir);
+app.disable('view cache');
 
 app.get('/', function (req, res) {
     res.render('repositories', { 

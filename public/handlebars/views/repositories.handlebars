@@ -1,15 +1,15 @@
-<form onsubmit="return false;" class="form-inline">
-<div class="form-group">
-    <label for=repositoryFilter">Filter:&nbsp;</label>
-    <input id="repositoryFilter" type="text" class="form-control" placeholder="Filter"/>
-</div>    
+<form onsubmit="return false;" class="form-inline tableFilter">
+    <div class="form-group">
+        <label for=repositoryFilter">Filter&nbsp;</label>
+        <input id="repositoryFilter" type="text" class="form-control" placeholder="search text"/>
+    </div>    
 </form>
-<table class="table table-condensed repositories" data-page-size="20" data-limit-navigation="10" data-filter="#repositoryFilter">
+<table class="table table-condensed repositories" data-page-size="18" data-limit-navigation="10" data-filter="#repositoryFilter">
     <thead>
-        <th data-sort-initial="true">Repository</th>
-        <th>Importance</th>
-        <th data-sort-ignore="true">Description</th>
-        <th>Language</th>
+        <th class="repository" data-sort-initial="true">Repository</th>
+        <th class="importance">Importance</th>
+        <th class="description" data-sort-ignore="true">Description</th>
+        <th class="language">Language</th>
     </thead>
     <tbody>
         {{#each repositories}}

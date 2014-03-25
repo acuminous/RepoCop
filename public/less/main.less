@@ -2,9 +2,35 @@ body {
     padding: 65px 15px 15px;    
 }
 
+form.tableFilter {
+    margin-bottom: 5px;
+
+    input {
+        padding: 3px 6px;
+        height: inherit;
+    }
+}
+
 table.repositories {
+    
+    th.repository {
+        width: 25%;    
+    }
+
+    th.importance {
+        width:10%;
+    }
+
+    th.language {
+        width: 10%;
+    }
+
     td.repository {
         white-space:nowrap;
+    }
+
+    tfoot td {
+        padding: 20px 0px;
     }
 }
 
