@@ -1,8 +1,9 @@
+var fork = require('child_process').fork;
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var ngmin = require('gulp-ngmin');
-var fork = require('child_process').fork;
+var replace = require('gulp-replace');
 var less = require('gulp-less');
 var rename = require('gulp-rename');
 var plumber = require('gulp-plumber');
@@ -10,7 +11,8 @@ var buster = require('gulp-buster');
 var exclude = require('gulp-ignore').exclude;
 
 var fonts = [
-    'bower_components/font-awesome/fonts/*'
+    'bower_components/font-awesome/fonts/*',
+    'bower_components/footable/css/fonts/footable.*'
 ]
 
 var scripts = [
@@ -20,6 +22,10 @@ var scripts = [
 var scriptLibs = [
     'bower_components/lodash/dist/lodash.js',
     'bower_components/jquery/dist/jquery.js',
+    'bower_components/footable/js/footable.js',
+    'bower_components/footable/js/footable.sort.js',
+    'bower_components/footable/js/footable.paginate.js',
+    'bower_components/footable/js/footable.filter.js',
     'bower_components/bootstrap/dist/js/bootstrap.js'
 ];
 
@@ -29,7 +35,8 @@ var styles = [
 
 var styleLibs = [
     'bower_components/font-awesome/css/font-awesome.css',
-    'bower_components/bootstrap/dist/css/bootstrap.css'    
+    'bower_components/bootstrap/dist/css/bootstrap.css',
+    'bower_components/footable/css/footable.core.css'
 ];
 
 gulp.task('fonts', function() {
@@ -69,6 +76,7 @@ gulp.task('styleLibs', function() {
         .pipe(plumber())
         .pipe(less())
         .pipe(concat('repocop-libs.css'))
+        .pipe(replace(/fonts\/footable/g, '../fonts/footable'))        
         .pipe(gulp.dest('public/dist/css'));
 });
 
@@ -77,6 +85,7 @@ gulp.task('default', ['server'], function() {
     gulp.watch(scriptLibs, ['scriptLibs']);    
     gulp.watch(styles, ['styles']);
     gulp.watch(styleLibs, ['styleLibs']);
+    gulp.watch(fonts, ['fonts']);
 });
 
 gulp.task('server', ['build'], function(callback) {

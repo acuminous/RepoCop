@@ -1,8 +1,14 @@
-<table class="table table-condensed repositories">
+<form onsubmit="return false;" class="form-inline">
+<div class="form-group">
+    <label for=repositoryFilter">Filter:&nbsp;</label>
+    <input id="repositoryFilter" type="text" class="form-control" placeholder="Filter"/>
+</div>    
+</form>
+<table class="table table-condensed repositories" data-page-size="20" data-limit-navigation="10" data-filter="#repositoryFilter">
     <thead>
-        <th>Repository</th>
+        <th data-sort-initial="true">Repository</th>
         <th>Importance</th>
-        <th>Description</th>
+        <th data-sort-ignore="true">Description</th>
         <th>Language</th>
     </thead>
     <tbody>
@@ -19,4 +25,11 @@
             </tr>
         {{/each}}        
     </tbody>
-</table>            
+    <tfoot>
+        <tr>
+            <td colspan="4" class="text-center">
+                <ul class="pagination pagination-centered hide-if-no-paging"></ul>
+            </td>
+        </tr>
+    </tfoot>
+</table>

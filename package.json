@@ -4,7 +4,7 @@
   "description": "Gathers metadata from source code repositories",
   "main": "cluster.js",
   "scripts": {
-    "postinstall": "bower update",
+    "postinstall": "bower --allow-root update",
     "start": "node cluster.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -31,7 +31,8 @@
     "gulp-buster": "~0.2.1",
     "gulp-ignore": "~1.0.0",
     "gulp-uglify": "^0.2.1",
-    "bower": "^1.3.1"
+    "bower": "^1.3.1",
+    "gulp-replace": "^0.2.0"
   },
   "dependencies": {
     "async": "^0.2.10",
@@ -42,7 +43,8 @@
     "optimist": "^0.6.1",
     "express": "^3.5.0",
     "express3-handlebars": "^0.5.0",
-    "winston": "^0.7.2"
+    "winston": "^0.7.2",
+    "recluster": "^0.3.6"
   },
   "repoCop": {
     "impact": "minor"
