@@ -5,17 +5,6 @@
     },
     "survey": {
         "frequency": 3600000,
-        "organisations": [
-            {
-                "name": "MailOnline",
-                "providerKey": "github",
-                "authentication": {
-                    "type": "basic",
-                    "username": "cressie176",
-                    "password": "114a390c11de7afea15515e62c15c8cd513dc8fd"
-                }
-            }
-        ]
     },
     "logging": [
         {
