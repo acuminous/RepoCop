@@ -6,7 +6,7 @@
     },
     "survey": {
         "output": "data/sample-repositories.json"
-    },
+    },  
     "logging": {
         "console": {            
             "type": "Console",
