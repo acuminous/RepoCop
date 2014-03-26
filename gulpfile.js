@@ -24,7 +24,9 @@ var templates = [
 
 var images = [
     'public/images/*.png',
-    'public/images/**/*.png'
+    'public/images/**/*.png',
+    'public/images/*.jpg',
+    'public/images/**/*.jpg',    
 ]
 
 var fonts = [

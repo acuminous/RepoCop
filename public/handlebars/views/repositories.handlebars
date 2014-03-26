@@ -8,7 +8,8 @@
     <thead>
         <th class="repository" data-sort-initial="true">Repository</th>
         <th class="importance">Importance</th>        
-        <th class="description" data-sort-ignore="true">Description</th>
+        <th class="description">Description</th>
+        <th class="lastCommit" data-sort-ignore="false">Last Commit</th>
         <th class="activity" data-sort-ignore="true">Activity</th>
         <th class="language">Language</th>
     </thead>
@@ -23,12 +24,13 @@
                     {{/if}}
                 <td>{{metadata.repoCop.importance}}</td>
                 <td>{{metadata.description}}</td>
+                <td data-value="{{ activity.0.date }}">{{{ fromNow activity.0.date }}}</td>
                 <td>
                     {{#each activity}}
                         {{#if avatar_url}}
-                            <a href="{{html_url}}"><img class="avatar" src="{{avatar_url}}" title="{{date}} {{name}} {{message}}"/></a>
+                            <a href="{{html_url}}"><img class="avatar" src="{{avatar_url}}" title="{{name}} {{message}} {{{ fromNow date }}}"/></a>
                         {{else}}                   
-                            <i class="fa fa-user" title="{{date}} {{name}} {{message}}"/>
+                            <i class="fa fa-user" title="{{name}} {{message}} {{{ fromNow date }}}"/>
                         {{/if}}
                         <div class='hidden'>{{name}} {{message}}</div>
                     {{/each}}

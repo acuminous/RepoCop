@@ -7,6 +7,7 @@ var environment = require('./lib/util/environment');
 var config = require('./lib/util/config');
 var survey = require('./lib/survey/survey');
 var logger = require('./lib/util/logger');
+var handlebarsHelpers = require('./lib/util/handlebarsHelpers');
 var app = express();    
 
 var publicDir = path.join(__dirname, 'public', 'dist');
@@ -21,7 +22,8 @@ app.post('/api/survey', survey.trigger);
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
     layoutsDir: layoutsDir,
-    partialsDir: viewsDir    
+    partialsDir: viewsDir,
+    helpers: handlebarsHelpers
 }));
 app.set('view engine', 'handlebars');
 app.set("views", viewsDir);
