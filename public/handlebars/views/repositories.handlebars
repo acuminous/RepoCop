@@ -6,6 +6,7 @@
 </form>
 <table class="table table-condensed table-hover repositories" data-page-size="18" data-limit-navigation="10" data-filter="#repositoryFilter">
     <thead>
+        <th class="provider" data-sort-ignore="true">&nbsp;</th>
         <th class="repository" data-sort-initial="true">Repository</th>
         <th class="importance">Importance</th>        
         <th class="description">Description</th>
@@ -15,13 +16,21 @@
     </thead>
     <tbody>
         {{#each repositories}}
-            <tr>
-                <td class="repository">
+            <tr class="{{#if error}}text-danger{{/if}}">
+                <td class="provider">
                     {{#if error}}
-                        <i class="fa fa-exclamation-triangle text-danger" title="{{error.message}}"></i>&nbsp;<a href="{{html_url}}" title="{{full_name}}" class="text-danger">{{name}}</a></td>                    
-                    {{else}}
-                        <i class="fa fa-github" title="github"></i>&nbsp;<a href="{{html_url}}" title="{{full_name}}">{{name}}</a></td>                    
+                        <i class="fa fa-exclamation-triangle" title="{{error.message}}"></i>
+                    {{else}}    
+                        <i class="fa fa-github" title="github"></i>                  
                     {{/if}}
+                </td>
+                <td class="repository">
+                    {{#if html_url}}
+                        <a href="{{html_url}}" title="{{full_name}}">{{name}}</a>
+                    {{else}}
+                        <div title="{{full_name}}">{{name}}</div>
+                    {{/if}}
+                </td>                    
                 <td>{{metadata.repoCop.importance}}</td>
                 <td>{{metadata.description}}</td>
                 <td data-value="{{ activity.0.date }}">{{{ fromNow activity.0.date }}}</td>
