@@ -1,7 +1,6 @@
 {
     "survey": {
-        "frequency": 3600000,
-        "output": "data/repositories.json"
+        "frequency": 3600000
     },
     "logging": {
         "console": {            

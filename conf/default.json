@@ -5,7 +5,7 @@
         "workers": 2
     },
     "survey": {
-        "output": "data/sample-repositories.json"
+        "output": "data/repositories.json"
     },  
     "logging": {
         "console": {            
