@@ -4,7 +4,7 @@
     },
     "logging": {
         "console": {            
-            "level": "info",
+            "level": "warn",
             "colorize": false
         },
         "app": {

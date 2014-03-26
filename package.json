@@ -1,23 +1,22 @@
 {
-  "name": "RepoCop",
+  "name": "repocop",
   "version": "0.0.0",
   "description": "Gathers metadata from source code repositories",
   "main": "cluster.js",
   "scripts": {
-    "postinstall": "bower --allow-root --config.interactive=false update",
     "start": "node cluster.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/acuminous/reposcan"
+    "url": "https://github.com/acuminous/repocop"
   },
   "author": "Stephen Cresswell",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/acuminous/reposcan/issues"
+    "url": "https://github.com/acuminous/repocop/issues"
   },
-  "homepage": "https://github.com/acuminous/reposcan",
+  "homepage": "https://github.com/acuminous/repocop",
   "devDependencies": {
     "gulp": "^3.5.6",
     "marked": "~0.3.1",
