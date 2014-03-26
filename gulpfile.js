@@ -135,7 +135,7 @@ gulp.task('default', ['server'], function() {
 });
 
 gulp.task('server', ['build'], function(callback) {
-    fork('cluster.js');
+    fork('server.js');
     callback();
 });
 
