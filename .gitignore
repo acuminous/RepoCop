@@ -9,5 +9,6 @@ coverage/
 bower_components/
 conf/private.json
 public/dist/*
-public/survey.json
+data/repositories.json
+nohup.out
 .idea
