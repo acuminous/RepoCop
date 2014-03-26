@@ -25,40 +25,33 @@ table.repositories {
     
     th {
         white-space:nowrap;    
-
-        &.repository {
-            width: 300px;
-        }
-
-        &.importance { 
-            width: 120px;
-        }
-
-        &.description {
-            min-width: 400px;
-        }
-
-        &.provider {
-            width: 25px;
-        }
     }
 
     td {
+        white-space:nowrap;
+        overflow: hidden;        
+        text-overflow: ellipsis;        
+
         &.provider {
             text-align: center;
         }
 
         &.repository {
-            white-space:nowrap;
-        }
+            width: 300px;
+        }   
 
         &.importance {
+            width: 120px;        
             text-transform:capitalize;
+        }
+      
+        &.description {
+            max-width: 300px;
         }
 
         &.activity {
-            white-space:nowrap;        
-        }
+            width: 140px;
+        }        
     }
 
     tfoot td {

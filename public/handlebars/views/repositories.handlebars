@@ -31,10 +31,16 @@
                         <div title="{{full_name}}">{{name}}</div>
                     {{/if}}
                 </td>                    
-                <td class="importance">{{metadata.importance}}</td>
-                <td class="description">{{metadata.description}}</td>
-                <td data-value="{{ activity.0.date }}">{{{ fromNow activity.0.date }}}</td>
-                <td>
+                <td class="importance" data-value="{{{ importanceValue metadata.importance }}}">{{metadata.importance}}</td>
+                <td class="description" title="{{#if metadata.description}}{{metadata.description}}{{else}}{{description}}{{/if}}">
+                    {{#if metadata.description}}                        
+                        {{metadata.description}}
+                    {{else}}
+                        {{description}}
+                    {{/if}}
+                </td>
+                <td class="lastCommit" data-value="{{ activity.0.date }}">{{{ fromNow activity.0.date }}}</td>
+                <td class="activity">
                     {{#each activity}}
                         {{#if avatar_url}}
                             <a href="{{html_url}}"><img class="avatar" src="{{avatar_url}}" title="{{name}} - {{message}} - {{{ fromNow date }}}"></a>
