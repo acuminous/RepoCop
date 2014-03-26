@@ -78,4 +78,3 @@ The application key should have access to the following roles
 
 ### BitBucket
  1. TODO
- 1. TODO

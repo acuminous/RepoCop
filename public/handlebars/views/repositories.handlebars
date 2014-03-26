@@ -7,16 +7,32 @@
 <table class="table table-condensed table-hover repositories" data-page-size="18" data-limit-navigation="10" data-filter="#repositoryFilter">
     <thead>
         <th class="repository" data-sort-initial="true">Repository</th>
-        <th class="importance">Importance</th>
+        <th class="importance">Importance</th>        
         <th class="description" data-sort-ignore="true">Description</th>
+        <th class="activity" data-sort-ignore="true">Activity</th>
         <th class="language">Language</th>
     </thead>
     <tbody>
         {{#each repositories}}
             <tr>
-                <td class="repository"><i class="fa fa-github" title="github"></i>&nbsp;<a href="{{html_url}}" title="{{full_name}}">{{name}}</a></td>
+                <td class="repository">
+                    {{#if error}}
+                        <i class="fa fa-exclamation-triangle text-danger" title="{{error.message}}"></i>&nbsp;<a href="{{html_url}}" title="{{full_name}}" class="text-danger">{{name}}</a></td>                    
+                    {{else}}
+                        <i class="fa fa-github" title="github"></i>&nbsp;<a href="{{html_url}}" title="{{full_name}}">{{name}}</a></td>                    
+                    {{/if}}
                 <td>{{metadata.repoCop.importance}}</td>
                 <td>{{metadata.description}}</td>
+                <td>
+                    {{#each activity}}
+                        {{#if avatar_url}}
+                            <a href="{{html_url}}"><img class="avatar" src="{{avatar_url}}" title="{{date}} {{name}} {{message}}"/></a>
+                        {{else}}                   
+                            <i class="fa fa-user" title="{{date}} {{name}} {{message}}"/>
+                        {{/if}}
+                        <div class='hidden'>{{name}} {{message}}</div>
+                    {{/each}}
+                </td>
                 <td>{{language}}</td>
             </tr>
         {{else}}

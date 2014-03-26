@@ -39,7 +39,7 @@ function requestSurvey() {
     });    
 }
 
-fs.writeFile(packageJson.name + '.pid', process.pid + '\n', function(err) {
+fs.writeFile(packageJson.name + '.pid'.toLowerCase(), process.pid + '\n', function(err) {
     if (err) throw err;
 });
 

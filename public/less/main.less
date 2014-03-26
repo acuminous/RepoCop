@@ -13,16 +13,12 @@ form.tableFilter {
 
 table.repositories {
     
-    th.repository {
-        width: 25%;    
-    }
+    th {
+        white-space:nowrap;    
 
-    th.importance {
-        width:10%;
-    }
-
-    th.language {
-        width: 10%;
+        &.description {
+            min-width: 400px;
+        }
     }
 
     td.repository {
@@ -32,6 +28,10 @@ table.repositories {
     tfoot td {
         padding: 20px 0px;
     }
+}
+
+img.avatar {
+    height: 20px;
 }
 
 body.error {
