@@ -34,13 +34,14 @@
                 <td class="importance">{{metadata.importance}}</td>
                 <td class="description">{{metadata.description}}</td>
                 <td data-value="{{ activity.0.date }}">{{{ fromNow activity.0.date }}}</td>
-                <td data-value="{{name}} {{login}} {{message}}">
+                <td>
                     {{#each activity}}
                         {{#if avatar_url}}
                             <a href="{{html_url}}"><img class="avatar" src="{{avatar_url}}" title="{{name}} {{message}} {{{ fromNow date }}}"/></a>
                         {{else}}                   
                             <i class="fa fa-user" title="{{name}} {{message}} {{{ fromNow date }}}"/>
                         {{/if}}
+                        <div class='hidden'>{{name}} {{login}} {{message}}</div>
                     {{/each}}
                 </td>
                 <td class="language">{{language}}</td>
