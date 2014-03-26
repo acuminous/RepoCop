@@ -17,11 +17,11 @@
     <tbody>
         {{#each repositories}}
             <tr class="{{#if error}}text-danger{{/if}}">
-                <td class="provider">
+                <td class="provider"  data-value="github {{#if error}}error{{/if}}">
                     {{#if error}}
                         <i class="fa fa-exclamation-triangle" title="{{error.message}}"></i>
                     {{else}}    
-                        <i class="fa fa-github" title="github"></i>                  
+                        <i class="fa fa-github" title="github" data-value="github"></i>                  
                     {{/if}}
                 </td>
                 <td class="repository">
@@ -37,9 +37,9 @@
                 <td>
                     {{#each activity}}
                         {{#if avatar_url}}
-                            <a href="{{html_url}}"><img class="avatar" src="{{avatar_url}}" title="{{name}} {{message}} {{{ fromNow date }}}"></img></a>
+                            <a href="{{html_url}}"><img class="avatar" src="{{avatar_url}}" title="{{name}} - {{message}} - {{{ fromNow date }}}"></a>
                         {{else}}                   
-                            <i class="fa fa-user" title="{{name}} {{message}} {{{ fromNow date }}}"></i>
+                            <i class="fa fa-user" title="{{name}} - {{message}} - {{{ fromNow date }}}"></i>
                         {{/if}}
                         <div class='hidden'>{{name}} {{login}} {{message}}</div>
                     {{/each}}
