@@ -16,10 +16,6 @@ var surveyUrl = url.format({
     pathname: '/api/survey'
 });
 
-if (environment === 'production' && !fs.existsSync('conf/private.json')) {
-    throw new Error('Installation incomplete - "./conf/private.json" is missing. Please see the readme for more details.');
-}
-
 var cluster = recluster('app.js', { workers: config.server.workers });
 cluster.run();
 
