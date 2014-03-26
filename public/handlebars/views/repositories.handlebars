@@ -47,8 +47,8 @@
                 <td>{{language}}</td>
             </tr>
         {{else}}
-            <tr>                
-                <td colspan="7">Please configure organisations in $REPO_COP_HOME/conf/private.json</td>
+            <tr class="text-danger">                
+                <td colspan="7">No repositories found. Have you added your scm configuration to &lt;install-dir&gt;/conf/private.json?</td>
             </tr>
         {{/each}}        
     </tbody>
