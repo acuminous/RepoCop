@@ -20,17 +20,30 @@ table.repositories {
     th {
         white-space:nowrap;    
 
+        &.repository {
+            width: 300px;
+        }
+
+        &.importance { 
+        }
+
         &.description {
             min-width: 400px;
         }
 
         &.provider {
-            width: 10px;
+            width: 25px;
         }
     }
 
-    td.repository {
-        white-space:nowrap;
+    td {
+        &.provider {
+            text-align: center;
+        }
+
+        &.repository {
+            white-space:nowrap;
+        }
     }
 
     tfoot td {
