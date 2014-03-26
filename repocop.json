@@ -1,5 +1,5 @@
 {
     "name": "RepoCop",
     "description": "Monitors metadata from source code repositories",
-    "importance": "Low"
+    "importance": "low"
 }
