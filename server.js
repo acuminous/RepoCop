@@ -3,11 +3,10 @@ var path = require('path');
 var fs = require('fs');
 var request = require('request');
 var url = require('url');
-var packageJson = require('./package.json');
 var logger = require('./lib/util/logger');
 var environment = require('./lib/util/environment');
 var config = require('./lib/util/config');
-var quote = require('./lib/util/quote');
+var quotes = require('./lib/util/quotes');
 
 var surveyUrl = url.format({
     protocol: 'http',
@@ -35,19 +34,20 @@ function requestSurvey() {
     });    
 }
 
-fs.writeFile(packageJson.name + '.pid'.toLowerCase(), process.pid + '\n', function(err) {
-    if (err) throw err;
-});
-
 process.on('SIGUSR2', function() {
     logger.warn('Reloading cluster');
     cluster.reload();
 });
 
+cluster.on('exit', function(worker) {
+    logger.warn('RepoCop %s exited.', worker.workerID);
+    logger.warn(quotes.shutdown());
+})
+
 var started = 0;
 cluster.on('message', function(worker, message) {
     if (message.type === 'started') {
-        logger.info('%s %s is listening on %s:%s in %s', packageJson.name, worker.workerID, config.server.host, config.server.port, environment);    
-        if (++started >= config.server.workers) logger.info(quote()); 
+        logger.info('RepoCop %s is listening on %s:%s in %s', worker.workerID, config.server.host, config.server.port, environment);    
+        if (++started >= config.server.workers) logger.info(quotes.startup()); 
     }
 })

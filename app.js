@@ -3,7 +3,6 @@ var exphbs = require('express3-handlebars');
 var fs = require('fs');
 var path = require('path');
 var _ = require('lodash');
-var environment = require('./lib/util/environment');
 var config = require('./lib/util/config');
 var survey = require('./lib/survey/survey');
 var logger = require('./lib/util/logger');
@@ -29,12 +28,7 @@ app.set('view engine', 'handlebars');
 app.set("views", viewsDir);
 app.disable('view cache');
 
-app.get('/', function (req, res) {
-    res.render('repositories', { 
-        environment: environment, 
-        repositories: fs.existsSync(config.survey.output) ? require(path.resolve(config.survey.output)) : []
-    })
-});
+app.get('/', survey.display);
 
 app.use(app.router);    
 app.use('/', express.static(publicDir));

@@ -105,7 +105,6 @@ gulp.task('styleLibs', function() {
 
 gulp.task('images', function() {
     return gulp.src(images)
-        .pipe(cachebust.resources())                           
         .pipe(gulp.dest('public/dist/images'));
 });
 
