@@ -11,6 +11,7 @@
         "console": {            
             "type": "Console",
             "level": "debug",
+            "timestamp": true,
             "colorize": true
         }
     }

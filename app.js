@@ -43,6 +43,6 @@ app.use(function(req, res, next){
 });
 
 app.listen(config.server.port, config.server.host, function(err) {
-    if (err) process.exit(1);
+    if (err) logger.die('Error starting RepoCop: %s', err.message);
     process.send({ type: 'started' });
 });
