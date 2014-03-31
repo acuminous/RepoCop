@@ -3,7 +3,7 @@ RepoCop monitors your source code repositories and reports violations to committ
 
 ## Primary Directives
 1. Each repository should have a file called repocop.json in the root directory
-1. repocop.json should contain at least the following elements
+1. repocop.json should contain at least the following element
 ```json
 {
   "importance": "<critical|high|medium|low>"
