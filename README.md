@@ -20,6 +20,7 @@ mkdir -p $INSTALL_DIR
 git clone https://github.com/acuminous/RepoCop.git $INSTALL_DIR
 cd $INSTALL_DIR
 npm install
+bower install
 ./node_modules/.bin/gulp build
 NODE_ENV=production node server.js --server.host=$HOST --server.port=$PORT
 ```
