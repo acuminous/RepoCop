@@ -64,6 +64,7 @@ The application key can be generated in GitHub on the [Applications settings pag
  1. read:org
 
 ## Triggering a repo survey
-```$ curl -X POST localhost:8080/api/survey
+```
+$ curl -X POST localhost:8080/api/survey
 Accepted
 ```
