@@ -17,11 +17,11 @@
     <tbody>
         {{#each repositories}}
             <tr class="{{#if error}}text-danger{{/if}}">
-                <td class="provider"  data-value="github {{#if error}}error{{/if}}">
+                <td class="provider" data-value="{{providerKey}} {{#if error}}error{{/if}}">
                     {{#if error}}
                         <i class="fa fa-exclamation-triangle" title="{{error.message}}"></i>
                     {{else}}    
-                        <i class="fa fa-github" title="github" data-value="github"></i>                  
+                        <i class="fa fa-{{providerKey}}" title="{{providerKey}}" data-value="{{providerKey}}"></i>
                     {{/if}}
                 </td>
                 <td class="repository">

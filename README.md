@@ -20,6 +20,7 @@ mkdir -p $INSTALL_DIR
 git clone https://github.com/acuminous/RepoCop.git $INSTALL_DIR
 cd $INSTALL_DIR
 npm install
+bower install
 ./node_modules/.bin/gulp build
 NODE_ENV=production node server.js --server.host=$HOST --server.port=$PORT
 ```
@@ -54,7 +55,7 @@ RepoCop requires you to define organisations in conf/private.json, e.g.
 }
 ```
 
-The application key should have access to the following roles
+The application key can be generated in GitHub on the [Applications settings page](https://github.com/settings/applications), under Personal Access Tokens. It should have access to the following roles
 
 ### GitHub
  1. repo
@@ -62,3 +63,9 @@ The application key should have access to the following roles
  1. user:email
  1. repo:status
  1. read:org
+
+## Triggering a repo survey
+```
+$ curl -X POST localhost:8080/api/survey
+Accepted
+```

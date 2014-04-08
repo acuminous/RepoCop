@@ -45,6 +45,7 @@
     "winston": "^0.7.2",
     "recluster": "^0.3.6",
     "request": "^2.34.0",
-    "moment": "^2.5.1"
+    "moment": "^2.5.1",
+    "bitbucket-api": "0.0.6"
   }
 }
