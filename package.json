@@ -1,6 +1,6 @@
 {
   "name": "repocop",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Gathers metadata from source code repositories",
   "main": "cluster.js",
   "scripts": {
