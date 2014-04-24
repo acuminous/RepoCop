@@ -2,13 +2,10 @@ var fork = require('child_process').fork;
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var ngmin = require('gulp-ngmin');
 var replace = require('gulp-replace');
 var less = require('gulp-less');
 var rename = require('gulp-rename');
 var plumber = require('gulp-plumber');
-var buster = require('gulp-buster');
-var exclude = require('gulp-ignore').exclude;
 var CacheBuster = require('gulp-cachebust');
 var cachebust = new CacheBuster();
 
@@ -67,7 +64,6 @@ gulp.task('fonts', function() {
 gulp.task('scripts', function() {
     return gulp.src(scripts)
         .pipe(plumber())
-        .pipe(ngmin())
         .pipe(concat('repocop.js'))
         .pipe(uglify({outSourceMap: true}))  
         .pipe(cachebust.resources())        
@@ -77,7 +73,6 @@ gulp.task('scripts', function() {
 gulp.task('scriptLibs', function() {
     return gulp.src(scriptLibs)
         .pipe(plumber())
-        .pipe(ngmin())
         .pipe(concat('repocop-libs.js'))
         .pipe(uglify({outSourceMap: true}))
         .pipe(cachebust.resources())        
